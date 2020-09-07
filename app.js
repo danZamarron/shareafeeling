@@ -8,10 +8,14 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const flash = require("connect-flash")
+const { setLocals } = require("./middlewares")
 
+
+let dbUrl = process.env.MONGODB || 'mongodb://localhost/shareafeeling';
 
 mongoose
-  .connect('mongodb://localhost/shareafeeling', {useNewUrlParser: true, useUnifiedTopology: true})
+  .connect(dbUrl, {useNewUrlParser: true, useUnifiedTopology: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -29,6 +33,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(flash())
+
+require('./configs/session')(app);
+app.use(setLocals(app))
 
 // Express View engine setup
 
@@ -50,9 +58,10 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 
-
-const index = require('./routes/index');
-app.use('/', index);
+app.use('/', require('./routes/index'));
+app.use('/', require('./routes/auth'));
+app.use('/', require('./routes/feelings'));
+app.use('/', require('./routes/comments'));
 
 
 module.exports = app;

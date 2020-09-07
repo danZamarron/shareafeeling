@@ -1,0 +1,33 @@
+<form class="text-center border border-light p-5" action="/auth/signup" method="POST" enctype="multipart/form-data">
+
+    <p class="h4 mb-4">Sign up</p>
+
+    <div class="form-row mb-4">
+        <div class="col">
+            <input type="text" id="defaultRegisterFormFirstName" class="form-control" name="username" placeholder="Username">
+        </div>
+    </div>
+
+    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" name="email"  placeholder="E-mail">
+
+    <input type="password" id="defaultRegisterFormPassword" name="password" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+        Al menos 1 mayuscula, 1 digito y de longitud minima de 6
+    </small>
+        
+    <div class="form-group">
+        <small for="profilePicture">Imagen de Perfil</small><br>
+        <input type="file" name="profilePicture" id="profilePicture"/>  
+    </div>
+
+    <button class="btn btn-info my-4 btn-block" type="submit">Sign in</button>
+
+    {{#if errorMessage}}
+      <p class="error h4 mb-4" style="color: red;">{{errorMessage}}</p>
+    {{/if}}
+
+    <hr>
+
+    <p><a href="/" >Regresar a Home</a>
+
+</form>

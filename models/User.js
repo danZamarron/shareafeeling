@@ -15,7 +15,7 @@ const userSchema = new Schema(
       lowercase: true,
       trim: true
     },
-    passwordHash: {
+    password: {
       type: String
     },
     profilePicture:{
@@ -23,6 +23,18 @@ const userSchema = new Schema(
     },    
     googleID: String,
     facebookID: String,
+    userFeelings: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Feeling"
+      }
+    ],
+    userComments: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Comment"
+      }
+    ]
   },
   {
     timestamps: true
