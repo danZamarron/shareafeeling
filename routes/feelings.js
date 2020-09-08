@@ -22,7 +22,7 @@ router.post('/feelings/add', isAuth, upload.single("feelingPicture"), catchError
 router.get('/feelings/edit/:feelingId', isAuth, getEditFeeling);
 router.post('/feelings/edit/:feelingId', isAuth, upload.single("feelingPicture"), catchErrors(postEditFeeling));
 
-router.get('/feelings/delete/:feelingId', isAuth, getDeleteFeeling)
+router.get('/feelings/delete/:feelingId', isAuth, catchErrors(getDeleteFeeling))
 
 router.get("/feelings/:feelingId", getDetailFeeling)
 

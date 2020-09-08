@@ -1,3 +1,35 @@
-        <img class="card-img-top" src="{{this.feelingImagePath}}" alt="image" >
-          <h5 class="card-title">{{this.title}}</h5>
-          <p class="card-text">{{this.feeling}}</p>
+<div class="row">
+      <div class="col-sm-12">
+        <img class="card-img-top rounded mx-auto d-block tam" src="{{feelingImagePath}}" alt="image" >
+          <h2 class="card-title text-center">{{title}}</h2>
+          <p class="card-text">{{feeling}}</p>
+          <p class="font-weight-light">Feeling por: <strong>{{userId.username}}</strong> - <u>{{formatDate createdAt "dddd, MMMM Do YYYY, h:mm:ss a"}}</u> </p>
+      </div>
+    
+</div>
+<hr><br>
+<div class="row">
+      <div class="col-sm-12 text-center">
+        {{#if user}}        
+        <a href="/comments/add/{{this._id}}" class="btn btn-primary ">Agrega un comentario</a>
+        {{else}}        
+        <a href="/auth/login" class="btn btn-primary">Login para postear un comentario</a>
+        {{/if}}
+      </div>
+</div>
+<br>
+<hr>
+<br>
+<div class="row">
+      <div class="col-sm-12">
+        <h4>Comentarios</h4>
+      </div>
+      <br><br>
+    {{#each commentsId}}
+      <div class="col-sm-12 colBorder">
+        <p class=" lead">{{this.comment}}</p>
+        <p class="font-weight-light">Comentado por: <strong>{{this.userId.username}}</strong> - <u>{{formatDate this.createdAt "dddd, MMMM Do YYYY, h:mm:ss a"}}</u> </p>
+      </div>
+    {{/each}}
+
+</div>

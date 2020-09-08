@@ -1,0 +1,17 @@
+<form class="text-center border border-light p-5" action="/comments/edit/{{_id}}" method="POST">
+
+    <p class="h4 mb-4">Editar Comentario al Feeling {{titleFeeling}}</p>
+
+    <input type="text" id="defaultRegisterFormEmail" required class="form-control mb-4" name="comment"  placeholder="Whats your message to that Feeling..." value="{{comment}}">
+
+    <button class="btn btn-info my-4 btn-block" type="submit">Editar Comentario</button>
+
+    {{#if errorMessage}}
+      <p class="error h4 mb-4" style="color: red;">{{errorMessage}}</p>
+    {{/if}}
+
+    <hr>
+
+    <p><a href="/" >Regresar a Home</a>
+
+</form>

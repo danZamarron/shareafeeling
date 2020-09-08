@@ -10,6 +10,19 @@ body {
   height:40px;
 }
 
+.colBorder {
+  border: 1px solid #c9c9c9;
+  margin-top:10px
+}
+
+.colBorder:last-child {
+  margin-bottom: 200px;
+}
+
+.tam{
+  max-width: 500px;
+}
+
 a {
   color: #00B7FF;
 }

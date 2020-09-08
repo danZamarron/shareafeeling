@@ -10,6 +10,7 @@ const logger       = require('morgan');
 const path         = require('path');
 const flash = require("connect-flash")
 const { setLocals } = require("./middlewares")
+const { formatDate } = require("./middlewares/helpers")
 
 
 let dbUrl = process.env.MONGODB || 'mongodb://localhost/shareafeeling';
@@ -24,7 +25,6 @@ mongoose
   });
 
 const app_name = require('./package.json').name;
-//const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
 
@@ -46,6 +46,7 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
       
+hbs.registerHelper("formatDate", formatDate)
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -53,9 +54,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
-
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Share a Feeling';
 
 
 app.use('/', require('./routes/index'));

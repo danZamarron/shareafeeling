@@ -71,16 +71,20 @@ exports.postEditFeeling = async (req, res, next) => {
 
 exports.getDeleteFeeling = async(req, res) => {
   let {feelingId} = req.params;
-
   await Feeling.findByIdAndRemove(feelingId)
-
   res.redirect('/feelings/list')
 }
 
 exports.getDetailFeeling = async(req, res) => {
   let {feelingId} = req.params;
-
   const feeling = await Feeling.findById(feelingId)
-
+  .populate("userId")  
+  .populate({
+    path: "commentsId",
+    populate: {
+      path: "userId",
+      model: "User"
+    }
+  })
   res.render('feelings/detail', feeling)
 }
