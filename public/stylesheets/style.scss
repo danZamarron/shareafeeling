@@ -26,3 +26,29 @@ body {
 a {
   color: #00B7FF;
 }
+
+.flex
+{
+  display:flex;
+  align-content: center;
+  justify-content: center;
+  border: 1px solid #bfbfbf;
+  padding: 10px;
+  margin-top: 20px;
+}
+.flex:last-child
+{
+  margin-bottom: 200px;
+}
+
+.imgProfile{
+  max-width:300px;
+}
+
+header {
+  padding: 156px 0 100px;
+}
+
+section {
+  padding: 100px 0;
+}

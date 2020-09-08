@@ -1,12 +1,12 @@
 const User = require("../models/User")
 const Feeling = require("../models/Feeling")
+const Comment = require("../models/Comment")
 
 exports.getListFeelings = async (req, res, next) => {
   const feelings = await Feeling.find().populate("userId")
   console.log(feelings)
   res.render("feelings/list", {feelings} )
 }
-
 
 exports.getAddFeeling =(req, res, next) => {
   res.render("feelings/add");
@@ -34,7 +34,6 @@ exports.postAddFeeling = async (req, res, next) => {
 
   res.redirect(`/feelings/list`);
 };
-
 
 exports.getEditFeeling = async (req, res, next) => {
   let feelingId = req.params.feelingId;
@@ -66,13 +65,14 @@ exports.postEditFeeling = async (req, res, next) => {
   })
 
 
-  res.redirect("/feelings/list");
+  res.redirect("/profile");
 };
 
 exports.getDeleteFeeling = async(req, res) => {
-  let {feelingId} = req.params;
-  await Feeling.findByIdAndRemove(feelingId)
-  res.redirect('/feelings/list')
+  let {feelingIdDel} = req.params;
+  await Feeling.findByIdAndRemove(feelingIdDel)
+  await Comment.deleteMany({ feelingId: feelingIdDel })
+  res.redirect('/profile')
 }
 
 exports.getDetailFeeling = async(req, res) => {

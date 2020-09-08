@@ -1,23 +1,22 @@
 <div class="row">
 
+  <h2>Search Results for: <strong>{{searchFeeling}}</strong></h2>
+</div>
+<br><br>
+<div class="row">
   {{#each feelings}}
-
   <div class="col-sm-12 col-md-6 col-lg-4">
-      <div class="card">
+      <div class="card text-center">
         <img class="card-img-top" src="{{this.feelingImagePath}}" alt="image" >
         <div class="card-body">
           <h5 class="card-title">{{this.title}}</h5>
           <p class="card-text">{{this.feeling}}</p>
         </div>
         <div class="card-body">
-          <a href="/feelings/{{_id}}" class="card-link">Detalle</a>
-          <a href="/feelings/edit/{{_id}}" class="card-link">Editar</a>
-          <a href="/feelings/delete/{{_id}}" class="card-link">Borrar</a>
+          <a class="btn btn-outline-primary btn-block"href="/feelings/{{_id}}" class="card-link">Ir al Feeling</a>
         </div>
       </div>
   </div>
-
   {{/each}}
-
 </div>
 

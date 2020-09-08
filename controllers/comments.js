@@ -36,7 +36,6 @@ exports.postAddComment = async (req, res, next) => {
   res.redirect(`/feelings/${feelingId}`);
 };
 
-
 exports.getEditComment = async (req, res, next) => {
   let {commentId} = req.params
   let comment = await Comment.findById(commentId)
@@ -64,5 +63,5 @@ exports.postEditComment = async (req, res, next) => {
 exports.getDeleteComment = async(req, res) => {  
   let {commentId} = req.params
   await Comment.findByIdAndRemove(commentId)
-  res.redirect('/')
+  res.redirect('/profile')
 }

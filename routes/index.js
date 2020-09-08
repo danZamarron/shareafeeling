@@ -1,12 +1,18 @@
 const express = require('express');
 const router  = express.Router();
+const {isAuth, catchErrors} = require(`../middlewares/index`);
 
-/* GET home page */
-router.get('/', (req, res, next) => {
+const {
+  getIndex,
+  getProfile,
+  getSearchResults,
+  getRandomFeeling,
+} = require("../controllers/index")
 
-  //console.log(req.user)
+router.get('/', getIndex);
+router.get('/profile', isAuth, catchErrors(getProfile));
+router.get('/search', catchErrors(getSearchResults));
+router.get('/randomfeeling', catchErrors(getRandomFeeling));
 
-  res.render('index');
-});
 
 module.exports = router;
