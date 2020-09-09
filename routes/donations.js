@@ -4,10 +4,12 @@ const {catchErrors} = require("../middlewares");
 
 const {
   getViewDonation,
-  postViewDonation
+  postViewDonation,
+  getViewProcessDonation
 } = require("../controllers/donations")
 
-router.get('/donations', catchErrors(getViewDonation));
+router.get('/donations', getViewDonation);
 router.post('/donationmade/:value', catchErrors(postViewDonation));
+router.get('/processdonation', catchErrors(getViewProcessDonation));
 
 module.exports = router

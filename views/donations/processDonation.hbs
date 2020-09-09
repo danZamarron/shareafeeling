@@ -1,0 +1,28 @@
+ <div class="">
+  <div class="col-xs-12">
+      <div class="box">
+          <h3 class="box-title">Resumen</h3>
+          <div class="plan-selection">
+              <div class="plan-data">
+                  <label for="question1">Donacion</label>
+                  <p class="plan-text">
+                     Donación de ${{valueDonation}}</p>
+                  <span class="plan-price">${{valueDonation}}</span>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="d-flex justify-content-around">
+    <div class="col-xs-6 text-center">
+        <a href="/donations" class="btn btn-outline-secondary">Regresar a Donaciones</a> 
+    </div>
+    <div class="col-xs-6 text-center">
+        <form method="POST" id="cinco" action="/donationmade/{{valueDonation}}">
+          <script
+          src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
+          data-preference-id='{{preferenceObj}}' data-button-label="Hacer Donacion">
+          </script>
+        </form>
+    </div> 
+  </div>
+</div>

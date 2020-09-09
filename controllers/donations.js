@@ -1,47 +1,33 @@
 const Donation = require("../models/Donation")
 const mercadopago = require("../configs/mercadopago")
 
-exports.getViewDonation = async(req,res,next) => {
+exports.getViewDonation = (req,res,next) => {
+  res.render("donations/index");
+};
 
-  const preference5 = {
-    items: [
-      {
-        title: `Donacion de $5`,
-        unit_price: 5,
-        quantity: 1
-      }
-    ]
-  }
-  const preference10 = {
-    items: [
-      {
-        title: `Donacion de $10`,
-        unit_price: 10,
-        quantity: 1
-      }
-    ]
-  }  
-  const preference25 = {
-    items: [
-      {
-        title: `Donacion de $25`,
-        unit_price: 25,
-        quantity: 1
-      }
-    ]
-  }
-  const {body: { id: preferenceCinco }} = await mercadopago.preferences.create(preference5)
-  const {body: { id: preferenceDiez }} = await mercadopago.preferences.create(preference10)
-  const {body: { id: preferenceVeinticinco }} = await mercadopago.preferences.create(preference25)
+exports.getViewProcessDonation = async (req, res, next) => {
 
-  let preferencias =
+  let {valueDonation} = req.query;
+  valueDonation = parseInt(valueDonation);
+
+  if(isNaN(valueDonation))
   {
-    cinco: preferenceCinco,
-    diez: preferenceDiez,
-    veinticinco: preferenceVeinticinco
-  };
+    res.redirect("/donations")
+    return;
+  }
 
-  res.render("donations/index", {preferencias});
+  const preference = {
+    items: [
+      {
+        title: `Donacion de ${valueDonation}`,
+        unit_price: valueDonation,
+        quantity: 1
+      }
+    ]
+  }
+  const {body: { id: preferenceObj }} = await mercadopago.preferences.create(preference)
+
+  res.render("donations/processDonation", {preferenceObj, valueDonation})
 };
 
 exports.postViewDonation = async (req, res, next) => {
