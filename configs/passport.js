@@ -94,7 +94,7 @@ passport.use(
 
       if (!user && !checkEmail) {
         const user = await User.create({
-          username: profile.displayName,
+          username: profile.displayName || `${profile.name.givenName || ""} ${profile.name.familyName || ""}`,
           facebookID: profile.id,
           email: profile.emails[0].value,
           profilePicture: profile.photos[0].value
