@@ -16,7 +16,7 @@ exports.getViewDonation = async(req,res,next) => {
     items: [
       {
         title: `Donacion de $10`,
-        unit_price: 5,
+        unit_price: 10,
         quantity: 1
       }
     ]
@@ -25,7 +25,7 @@ exports.getViewDonation = async(req,res,next) => {
     items: [
       {
         title: `Donacion de $25`,
-        unit_price: 5,
+        unit_price: 25,
         quantity: 1
       }
     ]

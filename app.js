@@ -15,7 +15,7 @@ const { formatDate } = require("./middlewares/helpers")
 
 let dbUrl = process.env.MONGODB || 'mongodb://localhost/shareafeeling';
 process.env.PORT = process.env.PORT || 3000;
-process.env.SITE = process.env.SITE  || `http://localhost`;
+process.env.SITE = process.env.SITE  || `http://localhost:3000`;
 
 mongoose
   .connect(dbUrl, {useNewUrlParser: true, useUnifiedTopology: true})
