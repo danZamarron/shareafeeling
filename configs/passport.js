@@ -17,10 +17,10 @@ passport.use(
       try {
         const user = await User.findOne({ email })
 
-        if (!user) return done(null, false, { message: "incorrect username" })
+        if (!user) return done(null, false, { message: "Error, intenta de nuevo" })
 
         if (!compareSync(password, user.password))
-          return done(null, false, { message: "Incorrect password" })
+          return done(null, false, { message: "Password incorrecto" })
 
         done(null, user)
       } catch (error) {
@@ -51,7 +51,7 @@ passport.use(
       const checkEmail = await User.findOne({email: profile.emails[0].value})
 
       if (!user && checkEmail) 
-        return done(null, false, { message: "Esta cuenta ya esta asociada"})
+        return done(null, false, { message: "Este email ya esta asociado"})
 
       if (!user) {
         const user = await User.create({
@@ -90,7 +90,7 @@ passport.use(
       })
 
       if (!user && checkEmail) 
-        return done(null, false, { message: "Esta cuenta ya esta asociada"})
+        return done(null, false, { message: "Este email ya esta asociado"})
 
       if (!user && !checkEmail) {
         const user = await User.create({

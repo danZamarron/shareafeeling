@@ -5,12 +5,13 @@ const passport = require("../configs/passport")
 
 //#region Login
 
-exports.getLoginView = (req, res) => res.render('auth/login');
+exports.getLoginView = (req, res) => res.render('auth/login', { "message": req.flash("error") });
 
 exports.postLoginView = passport.authenticate("local", {
   successRedirect: "/profile",
-  failureRedirect: "auth/login",
-  failureFlash: true
+  failureRedirect: "/auth/login",
+  failureFlash: true,
+  passReqToCallback: true
 })
 
 //#endregion
@@ -97,7 +98,8 @@ exports.googleProcess = passport.authenticate("google", {
 exports.googleRedirect = passport.authenticate("google", {
   successRedirect: "/profile",
   failureRedirect: "/auth/login",
-  failureFlash: true
+  failureFlash: true,
+  passReqToCallback: true
 })
 
 exports.facebookProcess = passport.authenticate("facebook", {
@@ -107,7 +109,8 @@ exports.facebookProcess = passport.authenticate("facebook", {
 exports.facebookRedirect = passport.authenticate("facebook", {
   successRedirect: "/profile",
   failureRedirect: "/auth/login",
-  failureFlash: true
+  failureFlash: true,
+  passReqToCallback: true
 })
 
 //#endregion
