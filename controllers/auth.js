@@ -45,7 +45,7 @@ exports.postsignUpView = async (req, res) => {
     res
       .status(500)
       .render('auth/signup', 
-      { errorMessage: 'El password neecsita tener al menos una mayuscula, un digito y una longitud minima de 6'});
+      { errorMessage: 'El password necesita tener al menos una mayuscula, un digito y una longitud minima de 6'});
     return;
   }
 
