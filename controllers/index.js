@@ -1,6 +1,7 @@
 const User = require("../models/User")
 const Feeling = require("../models/Feeling")
 const Comment = require("../models/Comment")
+const escapeStringRegexp = require('escape-string-regexp');
 
 exports.getIndex = (req, res, next) => {
   
@@ -19,6 +20,7 @@ exports.getProfile = async (req, res, next) => {
 exports.getSearchResults = async (req, res, next) => {
   
   let {searchFeeling} = req.query;
+  searchFeeling = escapeStringRegexp(searchFeeling);
   const feelings = await Feeling.find({ title: { $regex: `.*${searchFeeling}.*`, $options: 'i' } });
   res.render('feelings/list', {searchFeeling, feelings});
 };

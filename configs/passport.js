@@ -47,6 +47,12 @@ passport.use(
     async (accessToken, refreshToken, profile, done) => {
 
       const user = await User.findOne({ googleID: profile.id })
+      
+      const checkEmail = await User.findOne({email: profile.emails[0].value})
+
+      if (!user && checkEmail) 
+        return done(null, false, { message: "Esta cuenta ya esta asociada"})
+
       if (!user) {
         const user = await User.create({
           email: profile.emails[0].value,
@@ -70,14 +76,22 @@ passport.use(
     {
       clientID: process.env.FACEBOOK_ID,
       clientSecret: process.env.FACEBOOK_SECRET,
-      callbackURL: `http://${process.env.SITE}:${process.env.PORT}/auth/facebook/callback`,
+      callbackURL: `${process.env.SITE}/auth/facebook/callback`,
       profileFields: ["id", "email", "gender", "link", "name", "photos"]
     },
     async (accessToken, refreshToken, profile, done) => {
       const user = await User.findOne({
         facebookID: profile.id
       })
-      if (!user) {
+
+      const checkEmail = await User.findOne({
+        email: profile.emails[0].value
+      })
+
+      if (!user && checkEmail) 
+        return done(null, false, { message: "Esta cuenta ya esta asociada"})
+
+      if (!user && !checkEmail) {
         const user = await User.create({
           facebookID: profile.id,
           email: profile.emails[0].value,

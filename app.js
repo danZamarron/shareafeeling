@@ -14,6 +14,8 @@ const { formatDate } = require("./middlewares/helpers")
 
 
 let dbUrl = process.env.MONGODB || 'mongodb://localhost/shareafeeling';
+process.env.PORT = process.env.PORT || 3000;
+process.env.SITE = process.env.SITE  || `http://localhost`;
 
 mongoose
   .connect(dbUrl, {useNewUrlParser: true, useUnifiedTopology: true})
@@ -62,6 +64,7 @@ app.use('/', require('./routes/index'));
 app.use('/', require('./routes/auth'));
 app.use('/', require('./routes/feelings'));
 app.use('/', require('./routes/comments'));
+app.use('/', require('./routes/donations'));
 
 
 module.exports = app;
