@@ -55,6 +55,7 @@ passport.use(
 
       if (!user) {
         const user = await User.create({
+          username: profile.displayName,
           email: profile.emails[0].value,
           googleID: profile.id,
           profilePicture: profile.photos[0].value
@@ -93,6 +94,7 @@ passport.use(
 
       if (!user && !checkEmail) {
         const user = await User.create({
+          username: profile.displayName,
           facebookID: profile.id,
           email: profile.emails[0].value,
           profilePicture: profile.photos[0].value
