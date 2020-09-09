@@ -96,7 +96,8 @@ exports.googleProcess = passport.authenticate("google", {
 })
 exports.googleRedirect = passport.authenticate("google", {
   successRedirect: "/profile",
-  failureRedirect: "/auth/login"
+  failureRedirect: "/auth/login",
+  failureFlash: true
 })
 
 exports.facebookProcess = passport.authenticate("facebook", {
@@ -105,7 +106,8 @@ exports.facebookProcess = passport.authenticate("facebook", {
 
 exports.facebookRedirect = passport.authenticate("facebook", {
   successRedirect: "/profile",
-  failureRedirect: "/auth/login"
+  failureRedirect: "/auth/login",
+  failureFlash: true
 })
 
 //#endregion
