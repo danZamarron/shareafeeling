@@ -8,7 +8,7 @@ const passport = require("../configs/passport")
 exports.getLoginView = (req, res) => res.render('auth/login');
 
 exports.postLoginView = passport.authenticate("local", {
-  successRedirect: "/",
+  successRedirect: "/profile",
   failureRedirect: "auth/login",
   failureFlash: true
 })
@@ -95,7 +95,7 @@ exports.googleProcess = passport.authenticate("google", {
   ]
 })
 exports.googleRedirect = passport.authenticate("google", {
-  successRedirect: "/",
+  successRedirect: "/profile",
   failureRedirect: "/auth/login"
 })
 
@@ -104,7 +104,7 @@ exports.facebookProcess = passport.authenticate("facebook", {
 })
 
 exports.facebookRedirect = passport.authenticate("facebook", {
-  successRedirect: "/",
+  successRedirect: "/profile",
   failureRedirect: "/auth/login"
 })
 
