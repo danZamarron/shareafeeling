@@ -7,7 +7,7 @@
 
 <ul class="nav nav-pills nav-justified">
   <li class="nav-item"><a id="first" class="nav-link" data-toggle="tab" href="#feelings">Mis Feelings</a></li>
-  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#comments">Mis comments en Feelings</a></li>
+  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#comments">Mis comentarios en Feelings</a></li>
 </ul>
 <br>
 <br>
@@ -35,31 +35,31 @@
               <p>{{this.feeling}}</p>
             </div>
               <div class="col-sm-4 text-center">
-                <a class="btn btn-outline-danger btn-block" href="/feelings/delete/{{_id}}" class="card-link">Borrar</a>
+                <a class="btn btn-outline-danger btn-block" href="/feelings/delete/{{_id}}" class="card-link">Borrar Feeling</a>
               </div>
               <div class="col-sm-4 text-center">
-                <a class="btn btn-success btn-block"  href="/feelings/edit/{{_id}}" class="card-link">Editar</a>
+                <a class="btn btn-success btn-block"  href="/feelings/edit/{{_id}}" class="card-link">Editar Feeling</a>
               </div>
               <div class="col-sm-4 text-center">
-                <a class="btn btn-primary btn-block"  href="/feelings/{{_id}}" class="card-link">Detalle</a>
+                <a class="btn btn-primary btn-block"  href="/feelings/{{_id}}" class="card-link">Ir al Feeling</a>
               </div>
           </div>
       </div>
     {{/each}}
   </div>
   <div id="comments" class="tab-pane fade">  
-      <h2 class="text-center">Mis Comments en Feelings:</h2>
+      <h2 class="text-center">Mis comentarios en Feelings:</h2>
       <br>
       <br>
     {{#each userComments}}
           <div class="container flex">
             <div class="row text-center">      
               <div class="col-sm-12">
-                <h4>Comment en el Feeling:</h4>
+                <h4>Comentario en el Feeling:</h4>
                 <p>{{this.feelingId.title}}</p>
               </div> <br><br>     
               <div class="col-sm-12">
-                <h4>Comment:</h4>
+                <h4>Comentario:</h4>
                 <p>{{this.comment}}</p>
               </div>
                 <div class="col-sm-4 text-center">

@@ -25,19 +25,14 @@ exports.getSignUpView = (req, res) => {
 exports.postsignUpView = async (req, res) => {    
   const { username, email, password } = req.body
 
-  //console.log(req.body)
-
   if (username==="" || email === "" || password === "") {
     return res.render("auth/signup", { errorMessage: "Faltan campos requeridos" })
   }
   let picturePath = ""
+
   if (req.file)
   {
     picturePath = req.file.path
-  }
-  else{
-    //res.render('auth/signup', { errorMessage: 'Missing an Image for Profile' });
-    //return;
   }
 
 
@@ -53,7 +48,7 @@ exports.postsignUpView = async (req, res) => {
   const existingUser = await User.findOne({ email })
   
   if (existingUser) {
-    return res.render("auth/signup", { errorMessage: "Error, try again." })    
+    return res.render("auth/signup", { errorMessage: "Error, intenta de nuevo." })    
   }
 
   const hashPwd = hashSync(password, genSaltSync(saltRounds))

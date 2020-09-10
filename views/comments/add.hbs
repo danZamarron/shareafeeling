@@ -1,8 +1,8 @@
 <form class="text-center border border-light p-5" action="/comments/add/{{_id}}" method="POST">
 
-    <p class="h4 mb-4">Add Comentario al Feeling {{title}}</p>
+    <p class="h4 mb-4">Agregar Comentario al Feeling {{title}}</p>
 
-    <input type="text" id="defaultRegisterFormEmail" class="form-control mb-4" name="comment"  placeholder="Whats your message to that Feeling...">
+    <input type="text" id="defaultRegisterFormEmail" class="form-control mb-4" name="comment"  placeholder="Que comentario quieres dar al Feeling...">
 
     <button class="btn btn-info my-4 btn-block" type="submit">Agregar Comentario</button>
 
@@ -12,6 +12,6 @@
 
     <hr>
 
-    <p><a href="/" >Regresar a Home</a>
+    <p><a href="/feelings/{{_id}}" >Regresar al Feeling</a>
 
 </form>

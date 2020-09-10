@@ -69,9 +69,9 @@ exports.postEditFeeling = async (req, res, next) => {
 };
 
 exports.getDeleteFeeling = async(req, res) => {
-  let {feelingIdDel} = req.params;
-  await Feeling.findByIdAndRemove(feelingIdDel)
-  await Comment.deleteMany({ feelingId: feelingIdDel })
+  let {feelingId} = req.params;
+  await Feeling.findByIdAndRemove(feelingId)
+  await Comment.deleteMany({ feelingId })
   res.redirect('/profile')
 }
 

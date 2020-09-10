@@ -1,21 +1,21 @@
 <form class="text-center border border-light p-5" action="/feelings/edit/{{_id}}" method="POST" enctype="multipart/form-data">
 
-    <p class="h4 mb-4">Edit Feeling</p>
+    <p class="h4 mb-4">Editar Feeling</p>
 
     <div class="form-row mb-4">
         <div class="col">
-            <input type="text" id="defaultRegisterFormFirstName" class="form-control" name="title" placeholder="Feeling Title" value="{{title}}">
+            <input type="text" id="defaultRegisterFormFirstName" class="form-control" name="title" placeholder="Titulo del Feeling..." value="{{title}}">
         </div>
     </div>
 
-    <input type="text" id="defaultRegisterFormEmail" class="form-control mb-4" name="feeling"  placeholder="Whats the Feeling" value="{{feeling}}">
+    <input type="text" id="defaultRegisterFormEmail" class="form-control mb-4" name="feeling"  placeholder="Que te hace sentir el Feeling" value="{{feeling}}">
 
     <div class="form-group">
-        <small for="feelingPicture">Feeling Image</small><br>
+        <small for="feelingPicture">Imagen del Feeling </small><br>
         <input type="file" name="feelingPicture" id="feelingPicture"/>  
     </div>
 
-    <button class="btn btn-info my-4 btn-block" type="submit">Agregar</button>
+    <button class="btn btn-info my-4 btn-block" type="submit">Editar</button>
 
     {{#if errorMessage}}
       <p class="error h4 mb-4" style="color: red;">{{errorMessage}}</p>
