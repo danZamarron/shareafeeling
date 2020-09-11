@@ -144,7 +144,7 @@ section.pricing {
 .term-price {
   bottom: 18px; }
 
-.card {
+.card1 {
   border-radius: 4px;
   background: #fff;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
@@ -152,8 +152,19 @@ section.pricing {
   padding: 14px;
   cursor: pointer; }
 
-.card:hover {
+.card1:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06); }
+
+.imgCardSize {
+  width: 320px;
+  height: 260px;
+  object-fit: cover; }
+
+.mBot100 {
+  margin-bottom: 20px; }
+
+.mBot100:last-child {
+  margin-bottom: 100px; }
 
 /*# sourceMappingURL=style.css.map */

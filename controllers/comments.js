@@ -26,9 +26,6 @@ exports.postAddComment = async (req, res, next) => {
     feelingId: feelingId
   })
 
-  console.log(commentObj)
-
-
   await User.findByIdAndUpdate(req.user._id,{ $push: { userComments: commentObj._id } })
 
   await Feeling.findByIdAndUpdate(feelingId,{ $push: { commentsId: commentObj._id } })

@@ -4,7 +4,6 @@ const Comment = require("../models/Comment")
 
 exports.getListFeelings = async (req, res, next) => {
   const feelings = await Feeling.find().populate("userId")
-  console.log(feelings)
   res.render("feelings/list", {feelings} )
 }
 

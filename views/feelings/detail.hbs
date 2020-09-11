@@ -33,11 +33,17 @@
         <h4>Comentarios:</h4>
       </div>
       <br><br>
-    {{#each commentsId}}
-      <div class="col-sm-12 colBorder">
-        <p class=" lead">{{this.comment}}</p>
-        <p class="font-weight-light">Comentado por: <strong>{{this.userId.username}}</strong> - <i>{{formatDate this.createdAt "dddd, MMMM Do YYYY, h:mm:ss a"}}</i> </p>
-      </div>
-    {{/each}}
 
+    {{#each commentsId}}
+    <div class="col-sm-12 mBot100">
+        <div class="card">
+          <div class="card-body">
+            <p class="lead">{{this.comment}}</p>          
+          </div>          
+          <div class="card-footer text-muted">
+            <small>Comentado por: <strong>{{this.userId.username}}</strong> - <i>{{formatDate this.createdAt "dddd, MMMM Do YYYY, h:mm:ss a"}}</i></small>
+          </div>
+        </div>
+    </div>
+    {{/each}}
 </div>
