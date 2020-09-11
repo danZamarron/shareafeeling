@@ -11,7 +11,7 @@
       <h3 class="my-3">Descripcion: </h3>
       <p>{{feeling}}</p>
       <br>
-      <p class="font-weight-light">Feeling por: <strong>{{userId.username}}</strong> - <u>{{formatDate createdAt "dddd, MMMM Do YYYY, h:mm:ss a"}}</u> </p>
+      <p class="font-weight-light">Feeling por: <strong>{{userId.username}}</strong> - <i>{{formatDate createdAt "dddd, MMMM Do YYYY, h:mm:ss a"}}</i> </p>
     </div>
   </div>
 <hr>
@@ -36,7 +36,7 @@
     {{#each commentsId}}
       <div class="col-sm-12 colBorder">
         <p class=" lead">{{this.comment}}</p>
-        <p class="font-weight-light">Comentado por: <strong>{{this.userId.username}}</strong> - <u>{{formatDate this.createdAt "dddd, MMMM Do YYYY, h:mm:ss a"}}</u> </p>
+        <p class="font-weight-light">Comentado por: <strong>{{this.userId.username}}</strong> - <i>{{formatDate this.createdAt "dddd, MMMM Do YYYY, h:mm:ss a"}}</i> </p>
       </div>
     {{/each}}
 
