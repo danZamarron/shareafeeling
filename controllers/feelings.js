@@ -31,7 +31,7 @@ exports.postAddFeeling = async (req, res, next) => {
 
   await User.findByIdAndUpdate(req.user._id, { $push: { userFeelings: feelingObj } } );
 
-  res.redirect(`/feelings/list`);
+  res.redirect(`/profile`);
 };
 
 exports.getEditFeeling = async (req, res, next) => {
