@@ -27,3 +27,21 @@ Como se que esta ONG requiere fondos, añadimos una opción para ue puedas donar
 - Fecha de Vencimiento: 11/25
 * CV: 123
 En ambas el nombre del titular de la tarjeta puede ser ficticio
+
+
+### Variables de entorno
+
+| Variable de Entorno | Valor                                |
+|---------------------|--------------------------------------|
+| PORT                | Puerto del Servidor                  |
+| MONGODB             | Enlace del Servidor de MongoDB       |
+| SECRET              | Palabra Secreta del Session          |
+| SITE                | Ruta del Sitio (Default a Localhost) |
+| CLOUDINARY_NAME     | Nombre de la cuenta de Cloudinary    |
+| CLOUDINARY_KEY      | API Key de Cloudinary                |
+| CLOUDINARY_SECRET   | Secret Key de Cloudinary             |
+| GOOGLE_ID           | API ID Key de Google                 |
+| GOOGLE_SECRET       | API Secret Key de Google             |
+| FACEBOOK_ID         | API ID Key de Facebook               |
+| FACEBOOK_SECRET     | API Secret Key de Facebook           |
+| MP_TOKEN            | API Token Key de MercadoPago         |
