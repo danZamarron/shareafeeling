@@ -26,8 +26,4 @@ Como se que esta ONG requiere fondos, añadimos una opción para ue puedas donar
 + Numero de Tarjeta: 4075 5957 1648 3764
 - Fecha de Vencimiento: 11/25
 * CV: 123
-<<<<<<< HEAD
 En ambas el nombre del titular de la tarjeta puede ser ficticio
-=======
-En ambas el nombre del titular de la tarjeta puede ser ficticio
->>>>>>> 9862202bcd71a6f163ce8cc0be3f87aedf33c7f4
